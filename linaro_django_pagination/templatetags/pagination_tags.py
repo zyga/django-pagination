@@ -140,7 +140,8 @@ class AutoPaginateNode(Node):
         self.multiple_paginations = multiple_paginations
 
     def render(self, context):
-        if self.multiple_paginations or getattr(context, "paginator", None):
+        paginator = context.get('paginator', None)
+        if self.multiple_paginations or paginator:
             page_suffix = '_%s' % self.queryset_var
         else:
             page_suffix = ''
@@ -155,7 +156,10 @@ class AutoPaginateNode(Node):
             orphans = self.orphans
         else:
             orphans = self.orphans.resolve(context)
-        paginator = Paginator(value, paginate_by, orphans)
+        # Use existing paginator if possible, to avoid bad
+        # values for eg. num_pages
+        if paginator is None:
+            paginator = Paginator(value, paginate_by, orphans)
         try:
             request = context['request']
         except KeyError:
