@@ -8,5 +8,12 @@ DATABASES = {
 SECRET_KEY = 'fake-key'
 
 INSTALLED_APPS = (
-    'linaro_django_pagination',
+    'dj_pagination',
 )
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+    }
+]

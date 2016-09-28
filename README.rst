@@ -1,37 +1,34 @@
 ========================
-Linaro Django Pagination
+dj-pagination
 ========================
 
-.. image:: https://travis-ci.org/zyga/django-pagination.svg?branch=master
-    :target: https://travis-ci.org/zyga/django-pagination
+.. image:: https://travis-ci.org/pydanny/dj-pagination.svg?branch=master
+    :target: https://travis-ci.org/pydanny/dj-pagination
 
-.. image:: https://coveralls.io/repos/zyga/django-pagination/badge.svg?branch=master&service=github
-    :target: https://coveralls.io/github/zyga/django-pagination?branch=master
+.. image:: http://codecov.io/github/pydanny/dj-pagination/badge.svg?branch=master&service=github
+    :target: https://codecov.io/github/pydanny/django-pagination?branch=master
 
 
 About the fork
 --------------
 
-This project is a fork of apparently dead "django-pagination" project
-originally written by 'Eric Florenzano'. It is maintained by the Linaro
-Validation/Infrastructure team. Latest releases can be found on launchpad and
-pypi.
- 
-We are in the process of deciding how to properly host and manage the project.
-Feel free to hop to #linaro on irc.freenode.net and ask either 'zyga' or
-'mwhudson' about this.
+This project is a fork of the "django-pagination" project
+originally written by 'Eric Florenzano' then forked by the Linaro
+Validation/Infrastructure team. Latest releases can be found on pypi.
 
 
 About top-level package name change
 -----------------------------------
 The top level package name was changed from `pagination` to
-`linaro-django-pagination`. I did this to ensure that existing users of the
-original package could easily transition, on their own terms. Since both
-packages are co-installable you are free to check things out and see if the new
-pagination code works well for you or not.
+`linaro_django_pagination` to `dj_pagination`. Following the Linaro pattern
+I did this to ensure that existing users of the original package could easily
+transition, on their own terms. Since both packages are co-installable you
+are free to check things out and see if the new pagination code works well for
+you or not.
 
-Also, since the implementation of the actual tags was rewritten I would not
-feel entirely confident that the new package is a drop-in replacement.
+Since the implementation of the actual tags were rewritten since the
+django-pagination days it's fairly certain the new package is a NOT a
+drop-in replacement.
 
 
 Contributors
@@ -41,13 +38,8 @@ We would like to welcome any and all contributors. Please use the pull request
 feature on github.
 
 
-How to use linaro-django-pagination
+How to use dj-pagination
 -----------------------------------
 
 See our official documentation for more details.
-http://packages.python.org/linaro-django-pagination/
-
-
-.. image:: https://badges.gitter.im/zyga/django-pagination.svg
-   :alt: Join the chat at https://gitter.im/zyga/django-pagination
-   :target: https://gitter.im/zyga/django-pagination?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+http://dj-pagination.readthedocs.io/

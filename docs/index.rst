@@ -1,11 +1,11 @@
 ======================================
-Linaro Django Pagination Documentation
+dj-pagination Documentation
 ======================================
 
-.. automodule:: linaro_django_pagination
+.. automodule:: dj_pagination
 
 .. seealso:: To get started quickly see :ref:`usage`
-.. seealso:: See what's new in :ref:`version_2_0_2`
+.. seealso:: See what's new in :ref:`version_2_0_4`
 
 Features
 ========
@@ -20,7 +20,7 @@ Indices and tables
 
 .. toctree::
     :maxdepth: 2
-    
+
     installation.rst
     usage.rst
     changes.rst
@@ -28,4 +28,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-

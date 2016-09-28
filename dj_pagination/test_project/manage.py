@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 # Copyright (c) 2010, 2011 Linaro Limited
+# Copyright (c) 2016 Daniel Roy Greenfeld
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -28,18 +30,16 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+import logging
+
+from django.core.management import execute_manager
+
+try:
+    from dj_pagination.test_project import settings
+except ImportError as ex:
+    logging.exception("Unable to import application settings")
+    raise SystemExit(ex)
 
 
-def list(request):
-    return render_to_response("example/list.html", {
-        'item_list': range(1000),
-    }, RequestContext(request))
-
-
-def complex_list(request):
-    return render_to_response("example/two_lists.html", {
-        'first_item_list': ["first list item %d" % item for item in range(1000)],
-        'second_item_list': ["second list item %d" % item for item in range(1000)],
-    }, RequestContext(request))
+if __name__ == "__main__":
+    execute_manager(settings)

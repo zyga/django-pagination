@@ -1,4 +1,6 @@
+# Copyright (c) 2008, Eric Florenzano
 # Copyright (c) 2010, 2011 Linaro Limited
+# Copyright (c) 2016 Daniel Roy Greenfeld
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -27,11 +29,10 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+"""
+dj-pagination is a set of utilities for creating robust pagination
+tools throughout a django application.
+"""
 
-from django.conf.urls.defaults import (
-    patterns, url, include, handler500, handler404)
 
-urlpatterns = patterns(
-    'example.views',
-    url(r'^list/$', 'list'),
-    url(r'^complex-list/$', 'complex_list'))
+__version__ = (2, 0, 4, "final", 0)

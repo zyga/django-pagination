@@ -3,10 +3,10 @@
 Usage
 *****
 
-How to use linaro-django-pagination
+How to use dj-pagination
 ===================================
 
-``linaro-django-pagination`` allows for easy Digg-style pagination without modifying
+``dj-pagination`` allows for easy HTML-based pagination without modifying
 your views.
 
 There are really 5 steps to setting it up with your projects (not including
@@ -14,26 +14,26 @@ installation, which is covered in :ref:`installation`.)
 
 1. List this application in the ``INSTALLED_APPS`` portion of your settings
    file.  Your settings file might look something like::
-   
+
        INSTALLED_APPS = (
            # ...
-           'linaro_django_pagination',
+           'dj_pagination',
        )
 
 
 2. Install the pagination middleware.  Your settings file might look something
    like::
-   
+
        MIDDLEWARE_CLASSES = (
            # ...
-           'linaro_django_pagination.middleware.PaginationMiddleware',
+           'dj_pagination.middleware.PaginationMiddleware',
        )
 
 3. If it's not already added in your setup, add the request context processor.
    Note that context processors are set by default implicitly, so to set them
    explicitly, you need to copy and paste this code into your under
    the value TEMPLATE_CONTEXT_PROCESSORS::
-   
+
         ("django.core.context_processors.auth",
         "django.core.context_processors.debug",
         "django.core.context_processors.i18n",
@@ -46,18 +46,18 @@ installation, which is covered in :ref:`installation`.)
 
 
 5. Decide on a variable that you would like to paginate, and use the
-   autopaginate tag on that variable before iterating over it.  This could 
+   autopaginate tag on that variable before iterating over it.  This could
    take one of two forms (using the canonical ``object_list`` as an example
    variable):
-   
+
        {% autopaginate object_list %}
-       
+
    This assumes that you would like to have the default 20 results per page.
    If you would like to specify your own amount of results per page, you can
    specify that like so:
-   
+
        {% autopaginate object_list 10 %}
-   
+
    Note that this replaces ``object_list`` with the list for the current page, so
    you can iterate over the ``object_list`` like you normally would.
 
@@ -68,13 +68,13 @@ installation, which is covered in :ref:`installation`.)
    In general the full syntax is::
 
         autopaginate QUERYSET [PAGINATE_BY] [ORPHANS] [as NAME]
-   
+
 
 6. Now you want to display the current page and the available pages, so
    somewhere after having used autopaginate, use the paginate inclusion tag:
-   
+
        {% paginate %}
-   
+
    This does not require any arguments, but does assume that you have already
    called autopaginate, so make sure to do so first.
 
@@ -116,7 +116,7 @@ acts on the most recent call to autopaginate.
 A Note About Uploads
 ====================
 
-It is important, when using linaro-django-pagination in conjunction with file
+It is important, when using dj-pagination in conjunction with file
 uploads, to be aware of when ``request.page`` is accessed.  As soon as
 ``request.page`` is accessed, ``request.upload_handlers`` is frozen and cannot
 be altered in any way.  It's a good idea to access the ``page`` attribute on
@@ -126,7 +126,7 @@ the request object as late as possible in your views.
 Optional Settings
 =================
 
-In linaro-django-pagination, there are no required settings.  There are,
+In dj-pagination, there are no required settings.  There are,
 however, a small set of optional settings useful for changing the default
 behavior of the pagination tags.  Here's an overview:
 
@@ -144,7 +144,7 @@ behavior of the pagination tags.  Here's an overview:
 ``PAGINATION_DEFAULT_ORPHANS``
     The number of orphans allowed.  According to the Django documentation,
     orphans are defined as::
-    
+
         The minimum number of items allowed on the last page, defaults to zero.
 
 ``PAGINATION_INVALID_PAGE_RAISES_404``
@@ -162,11 +162,11 @@ behavior of the pagination tags.  Here's an overview:
     An HTML postfix for the next page link; the default value is ``&rsaquo;&rsaquo;``.
 
 ``PAGINATION_DISPLAY_DISABLED_PREVIOUS_LINK``
-    If set to ``False``, the previous page link will not be displayed if there's 
+    If set to ``False``, the previous page link will not be displayed if there's
     no previous page. Defaults to False.
 
 ``PAGINATION_DISPLAY_DISABLED_NEXT_LINK``
-    If set to ``False``, the next page link will not be displayed if there's no 
+    If set to ``False``, the next page link will not be displayed if there's no
     next page. Defaults to False.
 
 ``PAGINATION_DISABLE_LINK_FOR_FIRST_PAGE``

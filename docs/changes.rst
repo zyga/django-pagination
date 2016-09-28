@@ -1,6 +1,13 @@
 Version History
 ***************
 
+.. _version_2_0_4:
+
+Version 2.0.4
+=============
+
+This is a micro release to push minor fixes to a PyPI release.
+
 
 .. _version_2_0_2:
 

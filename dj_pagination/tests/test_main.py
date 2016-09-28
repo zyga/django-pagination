@@ -1,5 +1,6 @@
 # Copyright (c) 2008, Eric Florenzano
 # Copyright (c) 2010, 2011 Linaro Limited
+# Copyright (c) 2016 Daniel Roy Greenfeld
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -37,9 +38,9 @@ try:
 except ImportError:  # Django 1.2 compatible
     from django.test import TestCase as SimpleTestCase
 
-from linaro_django_pagination.paginator import InfinitePaginator, FinitePaginator
-from linaro_django_pagination.templatetags.pagination_tags import paginate
-from linaro_django_pagination.middleware import PaginationMiddleware
+from dj_pagination.paginator import InfinitePaginator, FinitePaginator
+from dj_pagination.templatetags.pagination_tags import paginate
+from dj_pagination.middleware import PaginationMiddleware
 
 
 class HttpRequest(DjangoHttpRequest):
@@ -301,7 +302,7 @@ class InfinitePaginatorTestCase(SimpleTestCase):
     def test_paginator_repr(self):
         self.assertEqual(
             repr(InfinitePaginator),
-            "<class 'linaro_django_pagination.paginator.InfinitePaginator'>",
+            "<class 'dj_pagination.paginator.InfinitePaginator'>",
         )
 
     def test_validate_number(self):
@@ -342,7 +343,7 @@ class FinitePaginatorTestCase(SimpleTestCase):
     def test_repr(self):
         self.assertEqual(
             repr(FinitePaginator),
-            "<class 'linaro_django_pagination.paginator.FinitePaginator'>"
+            "<class 'dj_pagination.paginator.FinitePaginator'>"
         )
 
     def test_validate_number(self):

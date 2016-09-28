@@ -1,5 +1,5 @@
-# Copyright (c) 2008, Eric Florenzano
 # Copyright (c) 2010, 2011 Linaro Limited
+# Copyright (c) 2016 Daniel Roy Greenfeld
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -29,28 +29,10 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-from django.conf import settings
+def run_tests():
+    from django_testproject.tests import run_tests_for
+    run_tests_for("dj_pagination.test_project.settings")
 
 
-DEFAULT_PAGINATION = getattr(
-    settings, 'PAGINATION_DEFAULT_PAGINATION', 20)
-DEFAULT_WINDOW = getattr(
-    settings, 'PAGINATION_DEFAULT_WINDOW', 4)
-DEFAULT_MARGIN = getattr(
-    settings, 'PAGINATION_DEFAULT_MARGIN', DEFAULT_WINDOW)
-DEFAULT_ORPHANS = getattr(
-    settings, 'PAGINATION_DEFAULT_ORPHANS', 0)
-INVALID_PAGE_RAISES_404 = getattr(
-    settings, 'PAGINATION_INVALID_PAGE_RAISES_404', False)
-DISPLAY_PAGE_LINKS = getattr(
-    settings, 'PAGINATION_DISPLAY_PAGE_LINKS', True)
-PREVIOUS_LINK_DECORATOR = getattr(
-    settings, 'PAGINATION_PREVIOUS_LINK_DECORATOR', "&lsaquo;&lsaquo; ")
-NEXT_LINK_DECORATOR = getattr(
-    settings, 'PAGINATION_NEXT_LINK_DECORATOR', " &rsaquo;&rsaquo;")
-DISPLAY_DISABLED_PREVIOUS_LINK = getattr(
-    settings, 'PAGINATION_DISPLAY_DISABLED_PREVIOUS_LINK', False)
-DISPLAY_DISABLED_NEXT_LINK = getattr(
-    settings, 'PAGINATION_DISPLAY_DISABLED_NEXT_LINK', False)
-DISABLE_LINK_FOR_FIRST_PAGE = getattr(
-    settings, 'PAGINATION_DISABLE_LINK_FOR_FIRST_PAGE', True)
+if __name__ == '__main__':
+    run_tests()
